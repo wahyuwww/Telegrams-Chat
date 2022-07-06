@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import userProfile from './userProfile';
-import listUser from './listUser';
-import myProfile from './myProfile';
+import getListUser from './listUser';
+import detailUser from './detailUser';
 
-export default combineReducers({
-	userProfile,
-	listUser,
-	myProfile
+const rootReducers = combineReducers({
+  user: getListUser,
+  detail: detailUser
 });
+
+export default rootReducers;

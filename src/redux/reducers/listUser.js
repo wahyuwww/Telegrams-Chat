@@ -1,22 +1,22 @@
+import { GET_USER_FAILED, GET_USER_PENDING, GET_USER_SUCCESS } from '../actions/type';
+
 const initialState = {
-	data: [],
-	isLoading: false,
-	isError: false,
-	errorMessage: ''
+  isLoading: false,
+  isError: false,
+  data: []
 };
 
-// pending, fulfilled, reject
-const listUser = (state = initialState, action) => {
-	switch (action.type) {
-	case 'GET_LIST_USER_PENDING':
-		return { ...state, isLoading: true };
-	case 'GET_LIST_USER_FULFILLED':
-		return { ...state, isLoading: false, isError: false, data: action.payload.data };
-	case 'GET_LIST_USER_REJECTED':
-		console.log(action.payload);
-		return { ...state, isLoading: false, isError: true, errorMessage: action.payload.response.data.message };
-	default:
-		return state;
-	}
+const getListUser = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_USER_PENDING:
+      return { ...state, isLoading: true };
+    case GET_USER_SUCCESS:
+      return { ...state, isLoading: false, data: action.payload };
+    case GET_USER_FAILED:
+      return { ...state, isLoading: false, isError: true };
+    default:
+      return state;
+  }
 };
-export default listUser;
+
+export default getListUser;
