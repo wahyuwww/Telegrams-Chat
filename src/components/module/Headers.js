@@ -1,5 +1,5 @@
 import React from 'react';
-import { CgMenuGridO } from 'react-icons/cg';
+import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
 export default function Headers({ img, onClick, user }) {
   return (
@@ -10,8 +10,8 @@ export default function Headers({ img, onClick, user }) {
           <h5 className="font-medium font-base text-dark-color">{user}</h5>
           <p className="text-secondary text-sm">online</p>
         </div>
-        <CgMenuGridO
-          className=" cursor-pointer flex justify-end text-secondary text-3xl right-4 absolute top-9"
+        <AiOutlineMenuUnfold
+          className=" cursor-pointer flex justify-end text-secondary mr-6 text-3xl right-4 absolute top-9"
           onClick={onClick}
         />
       </div>

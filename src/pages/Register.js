@@ -2,7 +2,8 @@
 /* eslint-disable no-useless-escape */
 import React, { useState } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
-import { AiFillEyeInvisible, AiFillEye, AiOutlineGoogle } from 'react-icons/ai';
+import { AiOutlineGoogle } from 'react-icons/ai';
+import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import { register } from '../redux/actions/auth';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert2';
@@ -44,7 +45,7 @@ const Register = () => {
       } else if (form) {
         register(body)
           .then(response => {
-            swal.fire('Success!', response.message, 'success');
+            swal.fire('Success!', `success anda berhasil register, ${form.username} silahkan login `, 'success');
             navigate('/');
           })
           .catch(error => {
@@ -69,7 +70,7 @@ const Register = () => {
   };
   return (
     <div className="bg-theme-primary flex items-center justify-center h-screen">
-      <div className="drop-shadow-lg w-96 p-9 rounded-3xl bg-primary">
+      <div className="drop-shadow-lg w-100 p-10 rounded-3xl bg-primary">
         <div className="flex text-center">
           <IoIosArrowBack className="text-secondary text-xl ml-[-5px] cursor-pointer" onClick={() => onNavigate()} />
           <p className="text-secondary font-medium text-2xl text-center ml-24 mt-[-5px]">Register</p>
@@ -122,12 +123,12 @@ const Register = () => {
               }}
             />
             {visibel ? (
-              <AiFillEye
+              <VscEye
                 className="absolute top-7 right-1.5 text-lg cursor-pointer"
                 onClick={() => setVisible(false)}
               />
             ) : (
-              <AiFillEyeInvisible
+              <VscEyeClosed
                 className="absolute top-7 right-1.5 text-lg cursor-pointer"
                 onClick={() => setVisible(true)}
               />

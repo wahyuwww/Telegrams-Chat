@@ -1,12 +1,13 @@
 import React from 'react';
+import { TiDelete } from 'react-icons/ti';
 
-export default function Bubbles({ message, img, deletes, date }) {
+const MessageSender = ({ message, img, date, deletes }) => {
   return (
     <div className="p-3 w-full relative">
       <div className="flex justify-end">
         <div className="bg-white max-w-sm p-5 rounded-[35px] rounded-br-xl ml-3 relative">
-          <p className="absolute top-0 left-0 cursor-pointer hover:text-secondary" onClick={deletes}>
-            x
+          <p className="absolute top-0 left-0 cursor-pointer hover:text-trans" onClick={deletes}>
+            <TiDelete className="text-rose-500" size="20px" />
           </p>
           <p className="text-dark-color">{message}</p>
         </div>
@@ -23,4 +24,6 @@ export default function Bubbles({ message, img, deletes, date }) {
       </div>
     </div>
   );
-}
+};
+
+export default MessageSender;
