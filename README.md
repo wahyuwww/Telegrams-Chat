@@ -19,11 +19,6 @@ $ git https://github.com/wahyuwww/Telegram-Chats.git
 $ cd Telegram-Chats
 ```
 
-### Start Development Server
-```
-Go live server
-```
-
 ## Link Netlify
 [Telegrams Chats](telegrams-chats.netlify.app/)
 
