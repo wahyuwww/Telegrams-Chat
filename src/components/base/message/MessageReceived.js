@@ -8,7 +8,7 @@ const MessageReceived = ({img,date,message}) => {
            <img
              src={img}
              alt=""
-             className="w-16 h-16 rounded-xl ml-3 cursor-pointer object-cover absolute bottom-0 left-0"
+             className="w-16 h-16 rounded-full ml-3 cursor-pointer object-cover absolute bottom-0 left-0"
            />
          </div>
          <div className="bg-secondary max-w-sm p-5 rounded-[35px] rounded-bl-xl ml-3 relative">

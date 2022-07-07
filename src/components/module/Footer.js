@@ -2,7 +2,8 @@ import React from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { BsFillEmojiLaughingFill, BsFillRecordCircleFill } from 'react-icons/bs';
 
-export default function Footer({ onSubmit, onChange, value }) {
+
+const Footer = ({ onSubmit, onChange, value }) => {
   return (
     <div className="h-20 drop-shadow-lg bg-white p-4 fixed bottom-0 w-9/12">
       <div className="flex p-2">
@@ -23,4 +24,6 @@ export default function Footer({ onSubmit, onChange, value }) {
       </div>
     </div>
   );
-}
+};
+
+export default Footer;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Card({ onClick, img, username, date, count, message }) {
+
+const Card = ({img,onClick,username,message,date,count}) => {
   return (
     <div className="flex p-3 cursor-pointer pr-2" onClick={onClick}>
       <img src={img} alt="user" className="w-14 h-14 rounded-xl ml-1" />
@@ -18,4 +19,6 @@ export default function Card({ onClick, img, username, date, count, message }) {
       </div>
     </div>
   );
-}
+};
+
+export default Card;

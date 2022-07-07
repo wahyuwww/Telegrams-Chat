@@ -23,6 +23,7 @@ import { RiImageEditLine } from 'react-icons/ri';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import Group from '../components/module/Group';
 
 const Chat = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,8 @@ const Chat = () => {
 
   const [socketio, setSocketio] = useState(null);
   const [isMessage, setIsMessage] = useState(false);
-  const [isMenu, setIsMenu] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [isGroup, setIsGroup] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [getPhoto, setPhoto] = useState('');
   const [getActiveReceiver, setActiveReceiver] = useState({});
@@ -41,7 +43,7 @@ const Chat = () => {
   const [isDetail, setIsDetail] = useState(false);
   const image =
     'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Kurt&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Pale';
-  const [idMessage, setIdMessage] = useState('');
+  // const [idMessage, setIdMessage] = useState('');
 
   useEffect(() => {
     dispatch(getDetailUser());
@@ -116,13 +118,23 @@ const Chat = () => {
   console.log(listChat);
   // Show menu
   const onMenu = () => {
-    if (isMenu) {
-      setIsMenu(false);
+    if (menu) {
+      setMenu(false);
     } else {
-      setIsMenu(true);
+      setMenu(true);
     }
   };
 
+  // Show Group
+  const onGroup = () => {
+    if (isGroup) {
+      setIsGroup(false);
+    } else {
+      setIsGroup(true);
+    }
+  };
+
+  console.log(isGroup);
   // edit profil
   const onEditProfile = () => {
     if (isEdit) {
@@ -130,7 +142,7 @@ const Chat = () => {
     } else {
       setIsEdit(true);
     }
-    setIsMenu(false);
+    setMenu(false);
   };
 
   const onDetailProfile = () => {
@@ -141,8 +153,9 @@ const Chat = () => {
     }
   };
 
+  // Notifikasi
   const createNotification = (sender, message) => {
-    return NotificationManager.info(message, `New chat from: ${sender}`, 3000);
+    return NotificationManager.info(message, `New chat from: ${sender}`, 4000);
   };
 
   // send message
@@ -173,6 +186,8 @@ const Chat = () => {
 
   // Send Message
   const [message, setMessage] = useState('');
+
+
   const onSubmitMessage = e => {
     e.preventDefault();
     const receiver = JSON.parse(localStorage.getItem('receiver'));
@@ -245,7 +260,7 @@ const Chat = () => {
                 <img
                   src={detail.photo ? detail.photo : image}
                   alt=""
-                  className="w-20 h-20 rounded-3xl ml-3 object-cover"
+                  className="w-20 h-20 rounded-lg ml-3 object-cover"
                 />
                 <label htmlFor="photo" className="text-xl cursor-pointer">
                   <RiImageEditLine />
@@ -327,20 +342,21 @@ const Chat = () => {
                 <h3 className="text-secondary ml-1 text-2xl font-medium ">Telegram</h3>
                 <HiOutlineViewList className="text-secondary text-2xl mt-2 cursor-pointer" onClick={() => onMenu()} />
               </div>
-              {isMenu ? <Menu onProfile={() => onEditProfile()} /> : <> </>}
+              {menu ? <Menu onProfile={() => onEditProfile()} /> : <> </>}
               <div className="flex justify-center items-center p-5 flex-col">
                 <img
                   src={detail.photo ? detail.photo : image}
                   alt=""
-                  className="w-20 h-20 rounded-3xl ml-3 object-cover"
+                  className="w-20 h-20 rounded-full ml-3 object-cover"
                 />
                 <h5 className="mt-3 text-xl font-medium">{detail.username}</h5>
-                <p className="tex-base text-grey-color">{detail.short_name}</p>
+                <p className="tex-base text-grey-color">{detail.short_name ? `@ ${detail.short_name}` : ' '}</p>
               </div>
               <div className="pl-5 flex">
                 <Search onChange={e => setSearch(e.target.value)} />
-                <FiPlus className="text-3xl text-secondary mt-3" />
+                <FiPlus className="text-3xl text-secondary mt-3 cursor-pointer" onClick={() => onGroup()} />
               </div>
+            {isGroup ? <Group /> : <> </>}
             </div>
             <div className="h-auto overflow-y-scroll fixed top-0 bottom-0 mt-[300px] left-0 bg-scroll z-10">
               {users.isLoading ? (

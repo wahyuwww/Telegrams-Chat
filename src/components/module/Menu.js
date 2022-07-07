@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineUser,  AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
-export default function Menu({ onProfile }) {
+const Menu = ({ onProfile }) => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
@@ -28,4 +28,6 @@ export default function Menu({ onProfile }) {
       </ul>
     </div>
   );
-}
+};
+
+export default Menu;

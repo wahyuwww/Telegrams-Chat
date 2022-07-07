@@ -15,7 +15,7 @@ const MessageSender = ({ message, img, date, deletes }) => {
           <img
             src={img}
             alt=""
-            className="w-16 h-16 rounded-xl ml-3 cursor-pointer absolute bottom-0 object-cover left-0"
+            className="w-16 h-16 rounded-full ml-3 cursor-pointer absolute bottom-0 object-cover left-0"
           />
         </div>
       </div>

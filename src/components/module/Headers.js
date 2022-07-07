@@ -1,7 +1,8 @@
 import React from 'react';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
-export default function Headers({ img, onClick, user }) {
+
+const Headers = ({ img, onClick, user }) => {
   return (
     <div className="h-24 drop-shadow-sm bg-white p-4 fixed w-9/12 z-10">
       <div className="flex">
@@ -17,4 +18,6 @@ export default function Headers({ img, onClick, user }) {
       </div>
     </div>
   );
-}
+};
+
+export default Headers;
