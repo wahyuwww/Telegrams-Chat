@@ -97,7 +97,7 @@ const Chat = () => {
           .then(response => {
             // console.log(response);
             swal.fire('Success!', 'Success update foto profil!');
-            setErorr('');
+            // setErorr('');
             dispatch(getDetailUser());
           })
           .catch(err => {
@@ -124,15 +124,16 @@ const Chat = () => {
       setMenu(true);
     }
   };
-
+  const dates = new Date();
+console.log(dates);
   // Show Group
-  const onGroup = () => {
-    if (isGroup) {
-      setIsGroup(false);
-    } else {
-      setIsGroup(true);
-    }
-  };
+  // const onGroup = () => {
+  //   if (isGroup) {
+  //     setIsGroup(false);
+  //   } else {
+  //     setIsGroup(true);
+  //   }
+  // };
 
   console.log(isGroup);
   // edit profil
@@ -186,7 +187,6 @@ const Chat = () => {
 
   // Send Message
   const [message, setMessage] = useState('');
-
 
   const onSubmitMessage = e => {
     e.preventDefault();
@@ -354,9 +354,9 @@ const Chat = () => {
               </div>
               <div className="pl-5 flex">
                 <Search onChange={e => setSearch(e.target.value)} />
-                <FiPlus className="text-3xl text-secondary mt-3 cursor-pointer" onClick={() => onGroup()} />
+                <FiPlus className="text-3xl text-secondary mt-3 cursor-pointer" />
               </div>
-            {isGroup ? <Group /> : <> </>}
+              {/* {isGroup ? <Group /> : <> </>} */}
             </div>
             <div className="h-auto overflow-y-scroll fixed top-0 bottom-0 mt-[300px] left-0 bg-scroll z-10">
               {users.isLoading ? (
@@ -430,7 +430,7 @@ const Chat = () => {
                   <ScrollToBottom className="scrool-buttom">
                     {item.sender === profile.username ? (
                       <MessageSender
-                        date={moment(item.date).format('lll')}
+                        date={moment(item.date).format('LT')}
                         message={item.message}
                         img={item.sender_photo ? item.sender_photo : image}
                         deletes={() => onDelete(item.id)}
@@ -438,7 +438,7 @@ const Chat = () => {
                     ) : (
                       // <h1>hallo</h1>
                       <MessageReceived
-                        date={moment(item.date).format('lll')}
+                        date={moment(item.date).format('LT')}
                         message={item.message}
                         img={receiver.photo ? receiver.photo : image}
                       />

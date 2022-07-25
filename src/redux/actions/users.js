@@ -9,7 +9,7 @@ import {
   GET_DETAIL_USER_FAILED
 } from './type';
 
-export const getUser = search => async dispatch => {
+export const getUser = (search) => async dispatch => {
   try {
     const token = localStorage.getItem('token');
     dispatch({
