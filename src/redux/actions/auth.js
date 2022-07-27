@@ -11,11 +11,11 @@ export const register = data => {
         resolve(response);
       })
       .catch(error => {
-         swal.fire({
-           icon: 'error',
-           title: 'Oops...',
-           text: 'data yang anda input kan masih salah'
-         });
+        //  swal.fire({
+        //    icon: 'error',
+        //    title: 'Oops...',
+        //    text: 'data yang anda input kan masih salah'
+        //  });
         reject(error);
       });
   });

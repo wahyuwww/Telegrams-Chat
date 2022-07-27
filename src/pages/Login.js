@@ -19,12 +19,13 @@ const Login = () => {
    password: ''
  });
   
-  
+  const [getErorrName, setErorrName] = useState('');
  const onSubmit = e => {
    e.preventDefault();
    setLoading(true);
    if (!form.email || !form.password) {
-     swal.fire('Error!', 'All field must be filled', 'error');
+     setErorrName('All field must be filled!');
+    //  swal.fire('Error!', 'All field must be filled', 'error');
      setLoading(false);
    } else {
      login(form)
@@ -49,7 +50,7 @@ const Login = () => {
        <p className="text-dark-color text-sm mt-6 mb-5">Hi, Welcome back!</p>
        <form
          action=""
-         onSubmit={e => {
+         onSubmit={(e) => {
            onSubmit(e);
          }}
        >
@@ -62,7 +63,7 @@ const Login = () => {
              className="bg-primary border-b-[1px] border-solid border-dark-color pt-1 pb-1 focus:outline-none"
              id="email"
              placeholder="Enter your email"
-             onChange={e => {
+             onChange={(e) => {
                setForm({ ...form, email: e.target.value });
              }}
            />
@@ -76,18 +77,34 @@ const Login = () => {
              className="bg-primary border-b-[1px] border-solid border-dark-color pt-1 pb-1 focus:outline-none"
              id="password"
              placeholder="Enter your password"
-             onChange={e => {
+             onChange={(e) => {
                setForm({ ...form, password: e.target.value });
              }}
            />
            {visibel ? (
-             <VscEye className="absolute top-7 right-1.5 text-lg cursor-pointer" onClick={() => setVisible(false)} />
+             <VscEye
+               className="absolute top-7 right-1.5 text-lg cursor-pointer"
+               onClick={() => setVisible(false)}
+             />
            ) : (
-             <VscEyeClosed className="absolute top-7 right-1.5 text-lg cursor-pointer" onClick={() => setVisible(true)} />
+             <VscEyeClosed
+               className="absolute top-7 right-1.5 text-lg cursor-pointer"
+               onClick={() => setVisible(true)}
+             />
            )}
+           {getErorrName ? (
+             <p className="text-red-light text-[13px]">
+               {getErorrName.toLowerCase()}
+             </p>
+           ) : null}
          </div>
-         <p className="text-sm text-secondary flex justify-end cursor-pointer">Forgot password?</p>
-         <button className="p-3 bg-secondary rounded-full w-full font-medium text-primary mt-5" type="submit">
+         <p className="text-sm text-secondary flex justify-end cursor-pointer">
+           Forgot password?
+         </p>
+         <button
+           className="p-3 bg-secondary rounded-full w-full font-medium text-primary mt-5"
+           type="submit"
+         >
            {loading ? (
              <>
                <FontAwesomeIcon icon={faSpinner} spin />

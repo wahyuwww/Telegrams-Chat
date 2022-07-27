@@ -2,7 +2,7 @@
     padding: 3px;
     position: relative;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .sub-sender{
     display: flex;
@@ -33,7 +33,7 @@
     transition: top .5s ease;
 }
 .msg{
-    color: aliceblue;
+    color: rgb(0, 0, 0);
 }
 .img-msg{
     position: relative;
@@ -62,13 +62,14 @@
 .dates-msg{
     color: gray;
     margin-top: 3px;
+    margin-right:27px;
 }
 .header-receiver{
     padding: 3px;
     position: relative;
     width: 100%;
     display: flex;
-    margin-top: 10px;
+    margin-top: 7px;
     
 }
 .sub-receiver{
@@ -103,7 +104,7 @@
     object-fit: cover;
 }
  .msg-receiver{
-     background-color:  rgba(126, 152, 223, 1);
+     background-color:  rgb(230, 232, 240);
     padding: 15px;
     color: black;
     border-radius: 35px;
