@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
+import './style.css';
 import { io } from 'socket.io-client';
 import icon from '../assets/icons.png';
 import Card from '../components/base/card/Card';
@@ -13,6 +14,7 @@ import Menu from '../components/module/Menu';
 import MessageSender from '../components/base/message/MessageSender';
 import MessageReceived from '../components/base/message/MessageReceived';
 import moment from 'moment';
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetailUser, getUser, updatePhoto, updateUser } from '../redux/actions/users';
 import swal from 'sweetalert2';
@@ -125,7 +127,7 @@ const Chat = () => {
     }
   };
   const dates = new Date();
-console.log(dates);
+  console.log(dates);
   // Show Group
   // const onGroup = () => {
   //   if (isGroup) {
@@ -176,13 +178,31 @@ console.log(dates);
   }, []);
 
   // Delete Message
-  const onDelete = e => {
-    const data = {
-      id: e,
-      sender: profile.id,
-      receiver: receiver.id
-    };
-    socketio.emit('delete-message', data);
+  const onDelete = async id => {
+    swal
+      .fire({
+        title: 'Are you sure to delete this message?',
+        text: 'You won\'t be able to revert this!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+      })
+      .then(async result => {
+        if (result.isConfirmed) {
+          await axios.delete(`${process.env.REACT_APP_API_URL}/chats/${id}`).then(res => {
+            const data = {
+              id: id,
+              sender: profile.id,
+              receiver: receiver.id
+            };
+            socketio.emit('delete-message', data);
+            swal.fire('Deleted!', 'Your message has been deleted.', 'success');
+            console.log(res);
+          });
+        }
+      });
   };
 
   // Send Message
@@ -244,30 +264,30 @@ console.log(dates);
   };
 
   return (
-    <div className="grid grid-cols-4 gap-4">
-      <div className="w-full col-span-1">
+    <div className="sesscion">
+      <div className="list-chat">
         {isEdit ? (
           <>
-            <div className="fixed bg-white w-1/4 p-5 pt-7">
+            <div className="fixed edit">
               <div className="flex text-center">
                 <IoIosArrowBack
                   onClick={() => onEditProfile()}
-                  className="text-secondary text-xl ml-[-5px] cursor-pointer"
+                  className="text-arrow"
                 />
                 {/* <p className="text-secondary text-xl text-center ml-24 mt-[-5px]">{detail.short_name}</p> */}
               </div>
-              <div className="flex justify-center items-center p-5 flex-col mt-3">
+              <div className="detail-photo">
                 <img
                   src={detail.photo ? detail.photo : image}
                   alt=""
-                  className="w-20 h-20 rounded-lg ml-3 object-cover"
+                  className="photos"
                 />
-                <label htmlFor="photo" className="text-xl cursor-pointer">
-                  <RiImageEditLine />
+                <label htmlFor="photo" className="cursor-pointer upload-images">
+                  <RiImageEditLine className='icon-upload' />
                 </label>
-                <input type="file" id="photo" hidden onChange={e => onChangePhoto(e, 'photo')} />
+                <input className="input-images" type="file" id="photo" hidden onChange={e => onChangePhoto(e, 'photo')} />
                 <input
-                  className="mt-3 text-xl font-medium text-center border-b-[1px] border-solid border-dark-color pb-1 focus:outline-none"
+                  className="input-profile"
                   defaultValue={detail.username}
                   onChange={e => {
                     setForm({ ...form, username: e.target.value });
@@ -275,9 +295,9 @@ console.log(dates);
                 />
                 {/* <p className="tex-base text-grey-color mt-2">{detail.short_name}</p> */}
               </div>
-              <div className="flex justify-center mt-[-10px]">
+              <div className="form-profile">
                 <button
-                  className="hover:bg-blue-light bg-secondary rounded-lg text-white font-medium p-2 pl-8 pr-8 flex items-center justify-end"
+                  className="button-save"
                   onClick={e => {
                     onSave(e);
                   }}
@@ -285,26 +305,23 @@ console.log(dates);
                   Save
                 </button>
               </div>
-              <div className="overflow-y-scroll mt-80 fixed top-0 bottom-0 max-w-[295px] overflow-hidden">
-                <p className="text-dark-color font-medium text-lg mb-5">Account</p>
+              <div className="form-akun">
+                <p className="acount">Account</p>
                 {/* <p className="text-dark-color font-medium text-lg mt-5">{detail.email}</p> */}
-                <label htmlFor="phone" className="text-grey-color text-sm cursor-pointer">
-                  Tap to change phone number
-                </label>
+                
                 <input
                   id="phone"
+                  placeholder=' Tap to change phone number'
                   type="text"
                   defaultValue={detail.phone}
                   onChange={e => {
                     setForm({ ...form, phone: e.target.value });
                   }}
-                  className="w-80 mt-2 focus:outline-none"
+                  className="input-phone "
                 />
                 <div>
-                  <hr className="text-grey-color mb-5" />
-                  <label htmlFor="username" className="text-grey-color font-sm cursor-pointer">
-                    Username
-                  </label>
+                  <hr className="garis" />
+                   <p className="label-username" htmlFor="username">Username</p>
                   <input
                     id="username"
                     type="text"
@@ -312,14 +329,12 @@ console.log(dates);
                     onChange={e => {
                       setForm({ ...form, shortName: e.target.value });
                     }}
-                    className="w-80 focus:outline-none text-dark font-medium"
+                    className="input-username"
                   />
-                  <hr className="text-grey-color mb-5" />
+                 <hr className="garis" />
                 </div>
                 <div>
-                  <label htmlFor="bio" className="text-grey-color font-sm cursor-pointer">
-                    Bio
-                  </label>
+                    <p className="label-username" htmlFor="bio">Bio</p>
                   <textarea
                     id="bio"
                     type="text"
@@ -327,38 +342,38 @@ console.log(dates);
                     onChange={e => {
                       setForm({ ...form, bio: e.target.value });
                     }}
-                    className="w-80  focus:outline-none text-dark font-medium min-h-[20px] overflow-hidden max-h-20"
+                    className="input-bio "
                   />
-                  <hr className="text-grey-color" />
+                 <hr className="garis" />
                 </div>
               </div>
             </div>
           </>
         ) : (
-          <>
-            <div className="fixed bg-white w-1/4 p-2">
-              <div className="pl-5 pt-5 flex justify-between">
-                <img src={icon} alt="" className="w-10 h-15" />
-                <h3 className="text-secondary ml-1 text-2xl font-medium ">Telegram</h3>
-                <HiOutlineViewList className="text-secondary text-2xl mt-2 cursor-pointer" onClick={() => onMenu()} />
+           <>
+            <div className="fixed list-chats">
+              <div className="title-list ">
+                <img src={icon} alt="" className="icons" />
+                <h3 className="title-tele ">Telegram</h3>
+                <HiOutlineViewList className="menu " onClick={() => onMenu()} />
               </div>
               {menu ? <Menu onProfile={() => onEditProfile()} /> : <> </>}
-              <div className="flex justify-center items-center p-5 flex-col">
+              <div className=" img-title">
                 <img
                   src={detail.photo ? detail.photo : image}
                   alt=""
-                  className="w-20 h-20 rounded-full ml-3 object-cover"
+                  className="img-title-card "
                 />
-                <h5 className="mt-3 text-xl font-medium">{detail.username}</h5>
-                <p className="tex-base text-grey-color">{detail.short_name ? `@ ${detail.short_name}` : ' '}</p>
+                <h5 className="title-username">{detail.username}</h5>
+                <p className="title-text">{detail.short_name ? `@ ${detail.short_name}` : '@ hallo '}</p>
               </div>
-              <div className="pl-5 flex">
+              <div className="search">
                 <Search onChange={e => setSearch(e.target.value)} />
-                <FiPlus className="text-3xl text-secondary mt-3 cursor-pointer" />
+                {/* <FiPlus className="search-icon" /> */}
               </div>
               {/* {isGroup ? <Group /> : <> </>} */}
             </div>
-            <div className="h-auto overflow-y-scroll fixed top-0 bottom-0 mt-[300px] left-0 bg-scroll z-10">
+            <div className="history-chats ">
               {users.isLoading ? (
                 <div></div>
               ) : users.data ? (
@@ -383,9 +398,9 @@ console.log(dates);
           </>
         )}
       </div>
-      <div className=" border-solid border-l-[1px] col-span-3 border-grey-color">
+      <div className="message ">
         {isMessage ? (
-          <div className="relative overflow-hidden">
+          <div className=" message-header">
             <Headers
               img={receiver.photo ? receiver.photo : image}
               onClick={() => setIsDetail(true)}
@@ -394,37 +409,37 @@ console.log(dates);
 
             {/* Detail Profile */}
             {isDetail ? (
-              <div className="z-30 absolute right-0 w-72 h-screen p-5 bg-white shadow-lg">
-                <div className="flex text-center mt-4">
+              <div className="details">
+                <div className="card-details ">
                   <IoIosArrowBack
                     onClick={() => onDetailProfile()}
-                    className="text-black text-xl ml-[-5px] cursor-pointer rotate-180"
+                    className="cursors"
                   />
-                  <p className=" text-xl text-center ml-14 mt-[-5px]">{receiver.short_name}</p>
+                  <p className="short">{receiver.short_name}</p>
                 </div>
-                <div className="flex items-center justify-center mt-10">
+                <div className="details-photo">
                   <img
                     src={receiver.photo ? receiver.photo : image}
                     alt=""
-                    className="h-24 w-24 rounded-xl ml-3 cursor-pointer"
+                    className="photoes "
                   />
                 </div>
-                <div className="mt-5">
-                  <h1 className="font-medium text-xl">{receiver.username}</h1>
-                  <p className="text-secondary text-sm">online</p>
+                <div className=" card-text">
+                  <h1 className="username-details">{receiver.username}</h1>
+                  <p className="text-online">online</p>
                 </div>
-                <div className="mt-3">
-                  <h1 className="text-lg font-medium ">Phone Number</h1>
-                  <h1 className="text-md">{receiver.phone}</h1>
+                <div className="card-text">
+                  <h1 className="username-details">Phone Number</h1>
+                  <h1 className="text-phone">{receiver.phone}</h1>
                 </div>
-                <div className="mt-3">
-                  <h1 className="text-lg font-medium ">Bio</h1>
-                  <h1 className="text-md">{receiver.bio}</h1>
+                <div className="card-text">
+                  <h1 className="username-details">Bio</h1>
+                  <h1 className="text-phone">{receiver.bio}</h1>
                 </div>
               </div>
             ) : null}
 
-            <div className="min-h-screen pt-28 pb-20 bg-primary">
+            <div className="messages min-h-screen pt-28 pb-20 bg-primary">
               {listChat.map((item, index) => (
                 <div key={index}>
                   <ScrollToBottom className="scrool-buttom">
@@ -450,8 +465,8 @@ console.log(dates);
             <Footer onSubmit={onSubmitMessage} onChange={e => setMessage(e.target.value)} value={message} />
           </div>
         ) : (
-          <div className="flex justify-center items-center h-screen bg-primary">
-            <p className="text-grey-color">Please select a chat to start messaging</p>
+          <div className="kosong ">
+            <p className="text-kosong">Please select a chat to start messaging</p>
           </div>
         )}
       </div>

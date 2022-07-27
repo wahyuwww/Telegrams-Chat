@@ -1,18 +1,19 @@
 import React from 'react';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
+import './Header.css';
 
 
 const Headers = ({ img, onClick, user }) => {
   return (
-    <div className="h-24 drop-shadow-sm bg-white p-4 fixed w-9/12 z-10">
-      <div className="flex">
-        <img src={img} alt="" className="w-16 h-16 rounded-xl ml-3 cursor-pointer object-cover" />
-        <div className="ml-5 p-2">
-          <h5 className="font-medium font-base text-dark-color">{user}</h5>
-          <p className="text-secondary text-sm">online</p>
+    <div className="header-header ">
+      <div className="card-headers">
+        <img src={img} alt="" className="img-header " />
+        <div className="header-usersss">
+          <h5 className="text-userh ">{user}</h5>
+          <p className="online-header ">online</p>
         </div>
         <AiOutlineMenuUnfold
-          className=" cursor-pointer flex justify-end text-secondary mr-6 text-3xl right-4 absolute top-9"
+          className="menuheader "
           onClick={onClick}
         />
       </div>

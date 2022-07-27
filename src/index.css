@@ -1,18 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
 
-:root {
-  --main-primary-color: rgba(250, 250, 250, 1);
-  --main-secondary-color: rgba(126, 152, 223, 1);
-  --theme-secondary-color: rgba(246, 246, 246, 1);
-  --text-primary-color: rgba(35, 35, 35, 1);
-  --text-secondary-color: rgba(132, 132, 132, 1);
-  --primary-object-color: rgba(38, 117, 236, 1);
-  --secondary-object-color: rgba(255, 85, 85, 1);
-}
+
 
 * {
   margin: 0;

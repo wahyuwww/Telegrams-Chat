@@ -1,0 +1,114 @@
+.header-sender{
+    padding: 3px;
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+}
+.sub-sender{
+    display: flex;
+    justify-content: flex-end;
+}
+.contend-msg{
+    background-color:  rgba(126, 152, 223, 1);
+    padding: 15px;
+    border-radius: 35px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    margin-left: 3px;
+    max-width: 200px;
+
+} 
+
+.deletead{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* right: 10; */
+    cursor: pointer;
+    /* display: block; */
+
+}
+.deletead:hover{
+    color: red;
+    transition: top .5s ease;
+}
+.msg{
+    color: aliceblue;
+}
+.img-msg{
+    position: relative;
+    width: 100px;
+}
+.images-msg{
+    margin-left: 0.75rem; 
+    height: 4rem; 
+    border-radius: 9999px; 
+
+    width: 56px;
+    /* height: 56px; */
+    /* border-radius: 50%; */
+    /* margin-left: 3px; */
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+}
+.date-msg{
+    display: flex;
+   justify-content: flex-end;
+    margin-right: 80px;
+}
+.dates-msg{
+    color: gray;
+    margin-top: 3px;
+}
+.header-receiver{
+    padding: 3px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    
+}
+.sub-receiver{
+    position: relative;
+    width: 60px;
+    flex-direction: column;
+   
+}
+.date-receiver{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 12px;
+    margin-bottom: 5px;
+    flex-direction: column;
+
+}
+.dater-msg{
+    margin-left: 75px;
+     color: gray;
+    margin-top: 5px;
+}
+.img-receiver{
+     margin-left: 0.75rem; 
+    height: 4rem; 
+    border-radius: 9999px; 
+
+    width: 56px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+}
+ .msg-receiver{
+     background-color:  rgba(126, 152, 223, 1);
+    padding: 15px;
+    color: black;
+    border-radius: 35px;
+    position: relative;
+    margin-left: 20px;
+    max-width: 200px;
+    border-bottom-left-radius: 10px;
+ }

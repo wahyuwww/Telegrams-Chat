@@ -1,26 +1,27 @@
 import React from 'react';
 import { TiDelete } from 'react-icons/ti';
+import './style.css';
 
 const MessageSender = ({ message, img, date, deletes }) => {
   return (
-    <div className="p-3 w-full relative">
-      <div className="flex justify-end">
-        <div className="bg-white max-w-sm p-5 rounded-[35px] rounded-br-xl ml-3 relative">
-          <p className="absolute top-0 left-0 cursor-pointer hover:text-trans" onClick={deletes}>
+    <div className="header-sender ">
+      <div className="sub-sender">
+        <div className="contend-msg">
+          <p className="deletead " onClick={deletes}>
             <TiDelete className="text-rose-500" size="20px" />
           </p>
-          <p className="text-dark-color">{message}</p>
+          <p className="msg">{message}</p>
         </div>
-        <div className="relative w-20">
+        <div className="img-msg">
           <img
             src={img}
             alt=""
-            className="w-16 h-16 rounded-full ml-3 cursor-pointer absolute bottom-0 object-cover left-0"
+            className="images-msg "
           />
         </div>
       </div>
-      <div className="flex justify-end">
-        <p className="text-grey-color mt-3">{date}</p>
+      <div className="date-msg ">
+        <p className="dates-msg">{date}</p>
       </div>
     </div>
   );

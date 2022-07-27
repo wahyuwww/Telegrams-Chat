@@ -1,0 +1,43 @@
+.header-header{
+    position: fixed; 
+padding: 1rem; 
+background-color: rgb(250, 251, 253);
+width: 75%; 
+drop-shadow: drop-shadow(0 1px 1px rgba(0,0,0,0.05)); 
+height: 88px;
+z-index: 10;
+}
+.img-header{
+    margin-left: 0.75rem; 
+height: 4rem; 
+border-radius: 0.75rem; 
+cursor: pointer; 
+object-fit: cover;
+width: 4rem;
+}
+.header-usersss{
+    margin-left: 5px;
+    padding: 2px;
+}
+.text-userh{
+    font-weight: 500;
+    color: black;
+}
+.online-header{
+    color: blue;
+    font-size: 14px;
+}
+.menuheader{
+    display: flex; 
+position: absolute; 
+right: 1rem; 
+margin-right: 1.5rem; 
+font-size: 1.875rem;
+line-height: 2.25rem; 
+justify-content: flex-end; 
+cursor: pointer; 
+color: cornflowerblue;
+}
+.card-headers{
+    display: flex;
+}
