@@ -31,7 +31,7 @@ Telegrams Chats is a real-time chat application that has several features, inclu
 
 **Client:** React Js, Redux
 
-**Server:** Node, Express
+**Server:** Node, Express, Socket
 
 ## Run Locally
 
@@ -71,10 +71,6 @@ NEXT_PUBLIC_API_URL=
 ## Screenshoots
 <p align="center" display=flex>
 <table>
-  <tr>
-  <td><image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=100% ><td>Chat Page</td></td>
-     
-  </tr>
   <tr>
     <td><image src="./ScreenShoot/registers.png" alt="Login Pagee" width=100%/></td>
     <td><image src="./ScreenShoot/logins.png" alt="Register Page" width=100%></td>
