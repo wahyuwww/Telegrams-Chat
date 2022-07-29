@@ -73,7 +73,9 @@ NEXT_PUBLIC_API_URL=
 ## Screenshoots
 <p align="center" display=flex>
 <table>
- 
+  <tr>
+  <image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=200% >Chat Page
+  </tr>
   <tr>
     <td><image src="./ScreenShoot/registers.png" alt="Login Pagee" width=100%/></td>
     <td><image src="./ScreenShoot/logins.png" alt="Register Page" width=100%></td>
@@ -83,9 +85,7 @@ NEXT_PUBLIC_API_URL=
     <td>Login Page</td>
   </tr>
   
-  <tr>
-    <td><image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=200% >Chat Page</td>
-  </tr>
+ 
   <tr>
     <td><image src="./ScreenShoot/detail profile.png" alt="List My Product" width=100%></td>
         <td><image src="./ScreenShoot/edit profile.png" alt="Salling Product" width=100%></td>
