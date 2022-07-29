@@ -93,6 +93,37 @@ NEXT_PUBLIC_API_URL=
   <tr>
       <td>Detail Profil</td>
        <td>Edit Profil</td>
+    <td><image src="./screensoot/https___resepin.vercel.app_home (1).png" alt="Home Page" width=100% ></td>
+    <td><image src="./screensoot/crop.png" alt="My Product" width=100%></td>
+  </tr>
+  <tr>
+    <td>Home Page</td>
+    <td>Detail Resep</td>
+  </tr>
+  <tr>
+    <td><image src="./screensoot/video tutor.png" alt="List My Product" width=100%></td>
+        <td><image src="./screensoot/Resepinaja.png" alt="Salling Product" width=100%></td>
+  </tr>
+  <tr>
+      <td>Video Tutorial</td>
+       <td>Profile</td>
+  </tr>
+  
+  <tr>
+    <td><image src="./screensoot/edit profil.png" alt="Edit Product" width=100%></td>
+    <td><image src="./screensoot/my resepin.png" alt="Update Profil" width=100%></td>
+  </tr>
+  <tr>
+      <td>Edit Profile</td>
+     <td>My Resep</td>
+  </tr>
+  <tr>
+    <td><image src="./screensoot/add resep.png" alt="Edit Product" width=100%></td>
+    <td><image src="./screensoot/editnoncrop.png" alt="Update Profil" width=100%></td>
+  </tr>
+  <tr>
+      <td>Add resep</td>
+     <td>Edit resep</td>
   </tr>
 </table>
  
