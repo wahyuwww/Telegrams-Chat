@@ -1,6 +1,6 @@
 <br/>
 <div align="center">
-<!-- <img src="https://i.postimg.cc/65pLzxB6/Group-4.png" width="auto" height="230" cover /> -->
+<img src="https://i.postimg.cc/CMXVVsR6/Group-5856.png" width="auto" height="230" cover />
  </div>
  <div align="center">
   <br />
@@ -40,13 +40,13 @@ Here is a working live demo  https://telegrams-chats.netlify.app/
 Clone the project
 
 ```bash
-  git clone https://github.com/wahyuwww/tlegrams-chats
+  git clone https://github.com/wahyuwww/Telegrams-Chats.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd tlegrams-chats
+  cd Telegrams-Chats
 ```
 
 Install dependencies
@@ -75,8 +75,8 @@ NEXT_PUBLIC_API_URL=
 <table>
  
   <tr>
-    <td><image src="./screensoot/Screenshot_3.png" alt="Register Page" width=100%></td>
-    <td><image src="./screensoot/Screenshot_4.png" alt="Login Pagee" width=100%/></td>
+    <td><image src="./ScreenShoot/registers.png" alt="Login Pagee" width=100%/></td>
+    <td><image src="./ScreenShoot/logins.png" alt="Register Page" width=100%></td>
   </tr>
    <tr>
     <td>Register Page</td>
@@ -84,6 +84,15 @@ NEXT_PUBLIC_API_URL=
   </tr>
   
   <tr>
+    <td><image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=100% >Chat Page</td>
+  </tr>
+  <tr>
+    <td><image src="./ScreenShoot/detail profile.png" alt="List My Product" width=100%></td>
+        <td><image src="./ScreenShoot/edit profile.png" alt="Salling Product" width=100%></td>
+  </tr>
+  <tr>
+      <td>Detail Profil</td>
+       <td>Edit Profil</td>
     <td><image src="./screensoot/https___resepin.vercel.app_home (1).png" alt="Home Page" width=100% ></td>
     <td><image src="./screensoot/crop.png" alt="My Product" width=100%></td>
   </tr>
@@ -140,7 +149,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 
 ## Back End
-https://github.com/wahyuwww/backend-resepin.git
+https://github.com/wahyuwww/Telegrams-Bakcend.git
 
 ## Contact
 
