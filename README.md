@@ -26,8 +26,6 @@
 
 Telegrams Chats is a real-time chat application that has several features, including private chat, viewing profile descriptions, and profile updates. Telegrams Chats are built using React.js as the frontend, Express.js as the backend, PostgreSQL as the data repository, and Socket.io to build applications in real time.
 
-## Demo
-Here is a working live demo  https://telegrams-chats.netlify.app/
 
 ## Tech Stack
 
@@ -125,8 +123,16 @@ If you find a bug (the website couldn't handle the query and / or gave undesired
 If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iharsh234/WebApp/issues/new). Please include sample queries and their corresponding results.
 
 
-## Back End
-https://github.com/wahyuwww/Telegrams-Bakcend.git
+## Related Project
+
+:rocket: [`Backend Telegrams Chats`](https://github.com/wahyuwww/Telegrams-Bakcend)
+
+:rocket: [`Frontend Telegrams Chats`](https://github.com/wahyuwww/Telegrams-Chats)
+
+:rocket: [`Web Service`](https://telegram-chats.herokuapp.com)
+
+:rocket: [`Demo Telegrams Chats`](https://telegrams-chats.netlify.app/)
+
 
 ## Contact
 
