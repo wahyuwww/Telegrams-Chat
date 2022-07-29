@@ -74,8 +74,8 @@ NEXT_PUBLIC_API_URL=
 <p align="center" display=flex>
 <table>
   <tr>
-  <image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=100% >
-     <td>Chat Page</td>
+  <td><image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=100% ><td>Chat Page</td></td>
+     
   </tr>
   <tr>
     <td><image src="./ScreenShoot/registers.png" alt="Login Pagee" width=100%/></td>
