@@ -8,7 +8,7 @@ import { login } from '../redux/actions/auth';
 import swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-
+import './auth.css';
 
 const Login = () => {
  const navigate = useNavigate();
@@ -46,7 +46,7 @@ const Login = () => {
  return (
    <div className="bg-theme-primary flex items-center justify-center h-screen">
      <div className="drop-shadow-lg w-120 p-10 rounded-3xl bg-primary">
-       <p className="text-secondary font-medium text-2xl text-center">Login</p>
+       <p className="text-link font-medium text-2xl text-center">Login</p>
        <p className="text-dark-color text-sm mt-6 mb-5">Hi, Welcome back!</p>
        <form
          action=""
@@ -74,7 +74,7 @@ const Login = () => {
            </label>
            <input
              type={visibel ? 'text' : 'password'}
-             className="bg-primary border-b-[1px] border-solid border-dark-color pt-1 pb-1 focus:outline-none"
+             className="bg-white border-b-[1px] border-solid border-dark-color pt-1 pb-1 focus:outline-none"
              id="password"
              placeholder="Enter your password"
              onChange={(e) => {
@@ -98,11 +98,11 @@ const Login = () => {
              </p>
            ) : null}
          </div>
-         <p className="text-sm text-secondary flex justify-end cursor-pointer">
+         <p className="text-sm text-link flex justify-end cursor-pointer">
            Forgot password?
          </p>
          <button
-           className="p-3 bg-secondary rounded-full w-full font-medium text-primary mt-5"
+           className="p-3 bg-button rounded-full w-full font-medium text-primary mt-5"
            type="submit"
          >
            {loading ? (
@@ -120,13 +120,13 @@ const Login = () => {
          <p>Login with</p>
          <hr className="w-24 text-center mt-3 text-grey-color" />
        </div>
-       <button className="p-3 bg-primary border-solid border-color-secondary border-2 rounded-full w-full font-medium text-secondary mt-4 flex justify-center">
+       <button className="p-3 bg-primary border-solid border-color-secondary border-2 rounded-full w-full font-medium text-link mt-4 flex justify-center">
          <AiOutlineGoogle className="mr-2 mt-[1px] font-bold text-xl" />
          Google
        </button>
        <div className="flex mt-6 justify-center text-sm">
          <p>Don’t have an account?</p>
-         <Link to="/register" className="ml-1 text-secondary cursor-pointer">
+         <Link to="/register" className="ml-1 text-link cursor-pointer">
            Sign Up
          </Link>
        </div>

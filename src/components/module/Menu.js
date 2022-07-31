@@ -10,7 +10,7 @@ const Menu = ({ onProfile }) => {
   };
 
   return (
-    <div className="bg-secondary w-36 h-30 z-20 absolute rounded-3xl rounded-tr-xl ml-36">
+    <div className="bg-menu w-36 h-30 z-20 absolute rounded-3xl rounded-tr-xl ml-36">
       <ul className="p-5">
         <li className="flex text-white text-center text-lg cursor-pointer" onClick={onProfile}>
           <AiOutlineUser className="mt-1 mr-2 text-lg" />
