@@ -81,7 +81,7 @@ NEXT_PUBLIC_API_URL=
   </tr>
   <tr>
     <td><image src="./ScreenShoot/chats telegrams.png" alt="Home Page" width=100% ></td>
-    <td><image src="./ScreenShoot/sender.png" alt="Register Page" width=100%></td>
+    <td><image src="./ScreenShoot/chat sender.png" alt="Register Page" width=100%></td>
   </tr>
    <tr>
    <td>Chat Page</td>
