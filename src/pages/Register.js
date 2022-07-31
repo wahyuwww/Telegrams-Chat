@@ -7,6 +7,7 @@ import { VscEyeClosed, VscEye } from 'react-icons/vsc';
 import { register } from '../redux/actions/auth';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert2';
+import './auth.css';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -75,10 +76,10 @@ const [getErorr, setErorr] = useState('');
       <div className="drop-shadow-lg w-100 p-10 rounded-3xl bg-primary">
         <div className="flex text-center">
           <IoIosArrowBack
-            className="text-secondary text-xl ml-[-5px] cursor-pointer"
+            className="text-link text-xl ml-[-5px] cursor-pointer"
             onClick={() => onNavigate()}
           />
-          <p className="text-secondary font-medium text-2xl text-center ml-24 mt-[-5px]">
+          <p className="text-link font-medium text-2xl text-center ml-24 mt-[-5px]">
             Register
           </p>
         </div>
@@ -157,25 +158,25 @@ const [getErorr, setErorr] = useState('');
                 onClick={() => setVisible(true)}
               />
             )}
-          {getErorrPass ? (
-            <p className="text-red-light text-[13px]">
-              {getErorrPass.toLowerCase()}
-            </p>
-          ) : null}
+            {getErorrPass ? (
+              <p className="text-red-light text-[13px]">
+                {getErorrPass.toLowerCase()}
+              </p>
+            ) : null}
           </div>
           <button
-            className="p-3 bg-secondary rounded-full w-full font-medium text-primary mt-5"
+            className="p-3 bg-button rounded-full w-full font-medium text-white mt-5"
             type="submit"
           >
             Register
           </button>
         </form>
-        <div className="flex justify-between mt-5 mb-5 text-grey-color">
-          <hr className="w-24 text-center mt-3 text-grey-color" />
+        <div className="flex justify-between mt-5 mb-5 text-regis">
+          <hr className="w-24 text-center mt-3 text-regis" />
           <p>Register with</p>
-          <hr className="w-24 text-center mt-3 text-grey-color" />
+          <hr className="w-24 text-center mt-3 text-regis" />
         </div>
-        <button className="p-3 bg-primary border-solid border-color-secondary border-2 rounded-full w-full font-medium text-secondary mt-4 flex justify-center">
+        <button className="p-3 bg-primary border-solid border-color-secondary border-2 rounded-full w-full font-medium text-link mt-4 flex justify-center">
           <AiOutlineGoogle className="mr-2 mt-[1px] font-bold text-xl" />
           Google
         </button>
