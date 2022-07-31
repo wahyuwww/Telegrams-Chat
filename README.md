@@ -127,7 +127,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 :rocket: [`Web Service`](https://telegram-chats.herokuapp.com)
 
-:rocket: [`Demo Telegrams Chats`](https://telegrams-chats.netlify.app/)
+:rocket: [`Demo Telegrams Chats`](https://telegrams-chat.netlify.app/)
 
 
 ## Contact
