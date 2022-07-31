@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiOutlineUser,  AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import './menu.css';
 
 const Menu = ({ onProfile }) => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Menu = ({ onProfile }) => {
   };
 
   return (
-    <div className="bg-menu w-36 h-30 z-20 absolute rounded-3xl rounded-tr-xl ml-36">
+    <div className="bg-menus w-36 h-30 z-20 absolute rounded-3xl rounded-tr-xl ml-36">
       <ul className="p-5">
         <li className="flex text-white text-center text-lg cursor-pointer" onClick={onProfile}>
           <AiOutlineUser className="mt-1 mr-2 text-lg" />

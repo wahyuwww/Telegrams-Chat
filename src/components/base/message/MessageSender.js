@@ -8,7 +8,7 @@ const MessageSender = ({ message, img, date, deletes }) => {
       <div className="sub-sender">
         <div className="contend-msg">
           <p className="deletead " onClick={deletes}>
-            <TiDelete className="text-rose-500" size="20px" />
+            <TiDelete className="text-rose-500 deltes" size="20px" />
           </p>
           <p className="msg">{message}</p>
         </div>

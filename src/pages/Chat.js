@@ -178,15 +178,36 @@ console.log(dates);
   }, []);
 
   // Delete Message
-  const onDelete = e => {
-    const data = {
-      id: e,
-      sender: profile.id,
-      receiver: receiver.id
-    };
-    socketio.emit('delete-message', data);
-  };
+ const onDelete = async (id) => {
+   swal
+     .fire({
+       title: 'Are you sure to delete this message?',
+       text: 'You won\'t be able to revert this!',
+       icon: 'warning',
+       showCancelButton: true,
+       confirmButtonColor: '#3085d6',
+       cancelButtonColor: '#d33',
+       confirmButtonText: 'Yes',
+     })
+     .then(async (result) => {
+       if (result.isConfirmed) {
+         await axios
+           .delete(`${process.env.REACT_APP_API_URL}/chats/${id}`)
+           .then((res) => {
+             const data = {
+               id: id,
+               sender: profile.id,
+               receiver: receiver.id,
+             };
+             socketio.emit('delete-message', data);
+             swal.fire('Deleted!', 'Your message has been deleted.', 'success');
+             console.log(res);
+           });
+       }
+     });
+ };
 
+  
   // Send Message
   const [message, setMessage] = useState('');
 
