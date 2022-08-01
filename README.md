@@ -89,8 +89,8 @@ NEXT_PUBLIC_API_URL=
   </tr>
  
   <tr>
-    <td><image src="./ScreenShoot/detail profile.png" alt="List My Product" width=100%></td>
-        <td><image src="./ScreenShoot/edit profile.png" alt="Salling Product" width=100%></td>
+    <td><image src="./ScreenShoot/detail profile tele.png" alt="List My Product" width=100%></td>
+        <td><image src="./ScreenShoot/update profile fix telegrams.png" alt="Salling Product" width=100%></td>
   </tr>
   <tr>
       <td>Detail Profil</td>
